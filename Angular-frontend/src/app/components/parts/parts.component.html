@@ -1,64 +1,65 @@
-<div *ngIf="loading">Loading...</div>
-<div *ngIf="error">Error :-(</div>
-<div *ngIf="parts">
-  <div class="flex flex-col">
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="overflow-hidden">
-          <table class="min-w-full text-left">
-            <thead class="border-b bg-slate-100 border border-slate-300">
-              <tr>
-                <th
-                  scope="col"
-                  class="text-sm font-medium border border-slate-300 text-gray-900 px-6 py-2"
-                >
-                  Name
-                </th>
-                <th
-                  scope="col"
-                  class="text-sm font-medium border border-slate-300 text-gray-900 px-6 py-2"
-                >
-                  Quantity
-                </th>
-                <th
-                  scope="col"
-                  class="text-sm font-medium border border-slate-300 text-gray-900 px-6 py-2"
-                >
-                  Weight
-                </th>
-                <th
-                  scope="col"
-                  class="text-sm font-medium border border-slate-300 text-gray-900 px-6 py-2"
-                >
-                  C.Part
-                </th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let part of parts; trackBy: partTrackbyFn">
-              <tr class="bg-white border-b" (click)="onGoToPartDetail(part)">
-                <td
-                  class="px-6 py-2 whitespace-nowrap border border-slate-300 text-sm font-medium text-gray-900"
-                >
-                  {{ part.name }}
-                </td>
-                <td
-                  class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap"
-                >
-                  {{ part.quantity }}
-                </td>
-                <td
-                  class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap"
-                >
-                  {{ part.weight }}
-                </td>
-                <td
-                  class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap"
-                >
-                  {{ part.criticalPart }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+<!-- Bannière -->
+<div class="bg-gradient-to-r from-blue-500 to-purple-500 p-4">
+  <div class="text-white text-center font-bold text-3xl">GraphQl Moko</div>
+</div>
+
+<!-- Menu -->
+<nav class="bg-gray-800 p-4">
+  <div class="flex items-center justify-between">
+    <div class="text-white font-bold">Accueil</div>
+    <div class="flex space-x-4">
+      <a href="#" class="text-white">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container mx-auto mt-8">
+  <div *ngIf="loading" class="text-center text-gray-700">Chargement en cours...</div>
+  <div *ngIf="error" class="text-center text-red-600">Une erreur s'est produite :-(</div>
+  <div *ngIf="parts">
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full text-left">
+              <!-- En-tête du tableau -->
+              <thead class="border-b bg-slate-100 border border-slate-300 bg-gray-800">
+                <tr>
+                  <th scope="col" class="text-white font-bold text-sm font-medium border border-slate-300 px-6 py-2">
+                    Name
+                  </th>
+                  <th scope="col" class="text-white font-bold text-sm font-medium border border-slate-300 px-6 py-2">
+                    Quantity
+                  </th>
+                  <th scope="col" class="text-white font-bold text-sm font-medium border border-slate-300 px-6 py-2">
+                    Weight
+                  </th>
+                  <th scope="col" class="text-white font-bold text-sm font-medium border border-slate-300 px-6 py-2">
+                    C.Part
+                  </th>
+                </tr>
+              </thead>
+              <!-- Corps du tableau -->
+              <tbody *ngFor="let part of parts; trackBy: partTrackbyFn">
+                <tr class="bg-white border-b cursor-pointer hover:bg-gray-100" (click)="onGoToPartDetail(part)">
+                  <td class="px-6 py-2 whitespace-nowrap border border-slate-300 text-sm font-medium text-gray-900">
+                    {{ part.name }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap">
+                    {{ part.quantity }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap">
+                    {{ part.weight }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light border border-slate-300 px-6 py-2 whitespace-nowrap">
+                    {{ part.criticalPart }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

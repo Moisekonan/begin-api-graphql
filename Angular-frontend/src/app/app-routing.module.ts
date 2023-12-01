@@ -4,7 +4,8 @@ import { PartsComponent } from './components/parts/parts.component';
 
 const routes: Routes = [
   {
-    path: "", component: PartsComponent
+    path: "", 
+    component: PartsComponent, 
   },
   {
     path: "part-detail",
