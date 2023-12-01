@@ -1,0 +1,10 @@
+/* stylelint-disable at-rule-no-unknown */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app-bg-color {
+    background-color: #a7ddf8;
+  }
+}
